@@ -1,10 +1,11 @@
 <?php
-$server = "localhost"; //nama server
-$username = "root"; // username 
-$password = "123"; //  standarnya kosong
-$database = "dbcrud"; // buat nama database harus sama 
+$host = 'localhost';
+$user = 'root'; // Ganti dengan username MySQL Anda
+$pass = ''; // Ganti dengan password MySQL Anda
+$db   = 'dbcrud';
 
-// Koneksi dan memilih database di server
-mysql_connect($server,$username,$password) or die("Koneksi gagal");
-mysql_select_db($database) or die("Database tidak bisa dibuka");
-?>
+$koneksi = new mysqli($host, $user, $pass, $db);
+
+if ($koneksi->connect_error) {
+    die("Koneksi Gagal: " . $koneksi->connect_error);
+}
